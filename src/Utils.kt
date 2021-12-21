@@ -9,3 +9,5 @@ fun debug(message: String) = Unit // println(message)
 fun <T> checkEquals(actual: T, expected: T) = check(actual == expected) {
     "Different values\n  actual: $actual\nexpected: $expected"
 }
+
+fun <T> runTimes(times: Int, foo: () -> T) = (0 until times).map { foo() }
