@@ -20,5 +20,6 @@ tasks {
     dependencies {
         implementation("org.jetbrains.kotlinx:multik-api:0.1.1")
         implementation("org.jetbrains.kotlinx:multik-default:0.1.1")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC2")
     }
 }
