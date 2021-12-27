@@ -1,5 +1,4 @@
 import kotlinx.coroutines.*
-import kotlin.system.measureTimeMillis
 
 data class CubeInstruction(val switch: Boolean, val x: IntRange, val y: IntRange, val z: IntRange)
 
@@ -44,7 +43,7 @@ fun main() {
     val xNormalized = input.normalizeAlongAx(CubeInstruction::x)
     val yNormalized = input.normalizeAlongAx(CubeInstruction::y)
     val zNormalized = input.normalizeAlongAx(CubeInstruction::z)
-    val timeSpent = measureTimeMillis {
+    measure {
         runBlocking {
             xNormalized.map { x ->
                 async(Dispatchers.Default) {
@@ -58,5 +57,4 @@ fun main() {
             }.awaitAll().sum().run { println(this) }
         }
     }
-    println("Took $timeSpent ms")
 }

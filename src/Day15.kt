@@ -1,4 +1,4 @@
-import io.uuddlrlrba.ktalgs.datastructures.PriorityQueue
+import java.util.*
 
 const val RESIZE_RATIO = 5
 
@@ -18,7 +18,7 @@ fun main() {
         }
 
         val indices = costs.indices.flatMap { y -> costs.first().indices.map { x -> Vertex(y, x) } }.toMutableSet()
-        val queue = PriorityQueue<Vertex>(indices.size) { a, b -> a.compareTo(b) }
+        val queue = PriorityQueue<Vertex>(indices.size)
         indices.forEach { queue.add(it) }
         result[0][0] = 0
         while (queue.isNotEmpty()) {
